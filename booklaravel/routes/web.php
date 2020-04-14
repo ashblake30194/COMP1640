@@ -22,7 +22,7 @@ Route::get('/user/plan', 'UserController@show');
 
 
 
-Auth::routes(['verify'=>true]);
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -37,3 +37,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     Route::resource('/book','BooksController');
     Route::resource('/users','UsersController', ['except' => ['show', 'create', 'store']]);
 });
+
+Route::get('/message/{id}', 'HomeController@getMessage')->name('message');
+Route::post('message', 'HomeController@sendMessage');
