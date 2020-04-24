@@ -9,6 +9,7 @@ use App\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -63,6 +64,35 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+         /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAdminForm()
+    {
+        return view('auth.AdminRegister');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showStaffForm()
+    {
+        return view('auth.StaffRegister');
+    }
+
+    public function showTeacherForm()
+    {
+        return view('auth.TeacherRegister');
+    }
+
+    public function showStudentForm()
+    {
+        return view('auth.StudentRegister');
+    }
+
+    
+
     protected function create(array $data)
     {
         $user = User::create([
@@ -70,10 +100,67 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        return $user;
+    }
+
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user =User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $role = Role::select('id')->where('name', 'admin')->first();
+        $user->roles()->attach($role);
+        return redirect()->intended('/admin/index');
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function createStaff(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user =User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
         $role = Role::select('id')->where('name', 'staff')->first();
         $user->roles()->attach($role);
+        return redirect()->intended('/pages/index');
+    }
 
-        return $user;
+    protected function createStudent(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user =User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $role = Role::select('id')->where('name', 'student')->first();
+        $user->roles()->attach($role);
+        return redirect()->intended('/pages/index');
+    }
+
+    protected function createTeacher(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user =User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $role = Role::select('id')->where('name', 'teacher')->first();
+        $user->roles()->attach($role);
+        return redirect()->intended('/pages/index');
     }
 }

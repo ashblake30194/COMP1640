@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class PagesController extends Controller
 {
     public function __construct(){
@@ -14,7 +14,7 @@ class PagesController extends Controller
 
     public function index(){
 
-        $data= ['title' => 'Book Online', 'desc' => 'Welcome to Book On-Line'];
+        $data= ['title' => 'Online Chat', 'desc' => 'Welcome to Online Chat'];
         return view('pages/index',$data);
 
     }
@@ -29,5 +29,18 @@ class PagesController extends Controller
    {
     $data= ['title' => 'About Us', 'desc' => 'ALPHA'];
     return view('pages/about', $data);
+   }
+
+   public function error()
+   {
+       $data= ['title'=> 'Warning', 
+       'user'=> Auth::user()->roles()->pluck('name')->first(),];
+       return view('pages/error', $data);
+   }
+
+   public function RegistrationType()
+   {
+       $data= ['title'=> 'Registration', ];
+       return view('pages/registration', $data);
    }
 }
