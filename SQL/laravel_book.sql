@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 26, 2020 lúc 12:45 PM
+-- Thời gian đã tạo: Th4 26, 2020 lúc 06:25 PM
 -- Phiên bản máy phục vụ: 10.4.6-MariaDB
 -- Phiên bản PHP: 7.1.32
 
@@ -25,42 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `books`
---
-
-CREATE TABLE `books` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `desc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `categories`
---
-
-CREATE TABLE `categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `categories`
---
-
-INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Test', NULL, NULL);
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `failed_jobs`
 --
 
@@ -71,6 +35,23 @@ CREATE TABLE `failed_jobs` (
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `groups`
+--
+
+CREATE TABLE `groups` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `group_id` int(255) NOT NULL,
+  `student_id` int(10) UNSIGNED NOT NULL,
+  `student_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `teacher_id` int(10) UNSIGNED NOT NULL,
+  `teacher_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -746,7 +727,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2020_03_11_010920_plan_user', 1),
 (10, '2020_03_18_015902_create_bissues_table', 1),
 (11, '2020_03_30_172254_books', 1),
-(12, '2020_03_30_172435_categories', 1);
+(12, '2020_03_30_172435_categories', 1),
+(13, '2020_04_26_141322_create_groups_table', 2);
 
 -- --------------------------------------------------------
 
@@ -807,7 +789,17 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`)
 (3, 1, 31, NULL, NULL),
 (4, 2, 32, NULL, NULL),
 (5, 2, 34, NULL, NULL),
-(8, 4, 38, NULL, NULL);
+(8, 4, 38, NULL, NULL),
+(9, 3, 3, NULL, NULL),
+(10, 3, 4, NULL, NULL),
+(11, 3, 5, NULL, NULL),
+(12, 3, 6, NULL, NULL),
+(13, 3, 7, NULL, NULL),
+(14, 4, 8, NULL, NULL),
+(15, 4, 9, NULL, NULL),
+(16, 4, 10, NULL, NULL),
+(17, 4, 11, NULL, NULL),
+(18, 4, 12, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -878,21 +870,15 @@ INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `email_verified_at`, `pass
 --
 
 --
--- Chỉ mục cho bảng `books`
---
-ALTER TABLE `books`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `groups`
+--
+ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -944,22 +930,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT cho bảng `books`
---
-ALTER TABLE `books`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT cho bảng `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `issues`
@@ -977,7 +957,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
@@ -989,7 +969,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
