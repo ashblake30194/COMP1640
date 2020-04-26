@@ -12,7 +12,7 @@ class AdminController extends Controller
     }
     public function index(){
 
-        $data= ['title' => 'Laravel Book', 'desc' => 'Welcome Laravel Book'];
+        $data= ['title' => 'ONLINE STUDY - ADMIN ZONE', 'desc' => 'Welcome Admin zone'];
     return view('admin/index',$data);
 
     }

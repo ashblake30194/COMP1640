@@ -1,18 +1,22 @@
-@extends('layouts.app')
+@extends('admin/inc/admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">User</div>
-                <div class="card-body">
+<div class="col-md-6">
+<h1>Products</h1>
 </div>
+<div class="col-md-6">
+<a href="{{route('admin.book.create')}}" class="btn btn-primary pull-left">
+<!-- <a href="/admin/book/addBook" class="btn btn-primary pull-left"> -->
+<i class="fa fa-pencil">Add Book</i>
+</a>
+</div>
+
 <table class="table">
   <thead>
     <tr>
     <th scope="col">Name</th>
     <th scope="col">Email</th>
+    <th scope="col">Roles</th>
     <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -36,11 +40,5 @@
       </td>
       </tr>
       @endforeach
-                    
-            
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+      </table>
 @endsection

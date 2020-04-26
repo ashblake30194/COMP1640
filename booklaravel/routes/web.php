@@ -22,7 +22,7 @@ Route::get('/pages/registration', 'PagesController@RegistrationType');
 Route::get('/user/plan', 'UserController@show');
 
 
-
+Route::resource('/group', 'GroupController');
 
 Auth::routes();
 
