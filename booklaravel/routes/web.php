@@ -48,5 +48,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     Route::resource('/users','UsersController', ['except' => ['show', 'create', 'store']]);
 });
 
+Route::get('/chat', 'ChatController@index');
+Route::get('/chat/{id}', 'ChatController@getMessage')->name('message');
+Route::post('chat', 'ChatController@sendMessage');
+
+
 Route::get('/message/{id}', 'HomeController@getMessage')->name('message');
 Route::post('message', 'HomeController@sendMessage');
