@@ -39,7 +39,7 @@ class ChatController extends Controller
 
         // Get all message from selected user
         $messages = DB::table('messages')
-            ->select('messages.*', 'users.name')
+            ->select('messages.*', 'users.name', 'users.avatar')
             ->join('users', 'messages.from', '=', 'users.id')
             ->where('to', $user_id)
             ->get();

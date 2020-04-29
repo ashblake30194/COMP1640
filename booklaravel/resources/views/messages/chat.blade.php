@@ -6,9 +6,6 @@
             <div class="col-md-4">
                 <div class="user-wrapper">
                     <ul class="users">
-                    @php
-                    dump($users);
-                    @endphp
                         @foreach($users as $user)
                             <li class="user" id="{{ $user->group_id }}">
                                 {{--will show unread count notification--}}
@@ -81,7 +78,6 @@
                 }
             }
         });
-
         $('.user').click(function () {
             $('.user').removeClass('active');
             $(this).addClass('active');
@@ -95,10 +91,17 @@
                 cache: false,
                 success: function (data) {
                     $('#messages').html(data);
+                    $('.received1').hide();
+                    $('.sent1').hide();
                     scrollToBottomFunc();
+                    actionShow();
                 }
             });
+            // actionShow();
         });
+        // $(".user").trigger("click", function() {
+        //     actionShow();
+        // });
 
         $(document).on('keyup', '.input-text input', function (e) {
             var message = $(this).val();
@@ -131,5 +134,13 @@
         $('.message-wrapper').animate({
             scrollTop: $('.message-wrapper').get(0).scrollHeight
         }, 50);
+    }
+
+    function actionShow() {
+        if($('.check_avatar').hasClass('received')){
+            $('.received1').show();
+        } else if($('.check_avatar').hasClass('sent')) {
+            $('.sent1').show();
+        }
     }
 </script>

@@ -155,6 +155,14 @@
         input[type=text]:focus {
             border: 1px solid #aaaaaa;
         }
+        .fontPS {
+            font-size: x-small;
+        }
+        .fontPL {
+            font-size: larger;
+            font-weight:bold;
+            color:black
+        }
     </style>
 </head>
 
