@@ -21,19 +21,17 @@ class ChatController extends Controller
     {
         $a = Auth::user()->id;
         $users = DB::table('users')
-            ->select(array('groups.group_id','groups.teacher_name', 'users.avatar', DB::raw('COUNT(messages.is_read) as unread')))
+            ->select(array('groups.group_id','groups.teacher_name', 'users.avatar', 'groups.student_id', DB::raw('COUNT(messages.is_read) as unread')))
             ->join('groups', 'groups.student_id', '=', 'users.id')
             ->join('messages', 'messages.to', '=', 'groups.group_id')
             ->where(['student_id'=> $a])
-            ->groupBy('groups.group_id','groups.teacher_name', 'users.avatar')
+            ->groupBy('groups.group_id','groups.teacher_name', 'users.avatar', 'groups.student_id')
             ->get();
         return view('messages/chat', ['users' => $users]);
     }
 
     public function getMessage($user_id)
     {
-        $my_id = Auth::id();
-
         // Make read all unread message
         Message::where(['from' => $user_id])->update(['is_read' => 1]);
 

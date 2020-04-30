@@ -28,7 +28,7 @@
             @endforeach
             <div class="form-group">
             <h5>Students</h5>
-            <select class="browser-default custom-select custom-select-lg mb-3" name="student_id">           
+            <select class="browser-default custom-select custom-select-lg mb-3" name="student_id[]" multiple>
             @foreach($users as $user)
             @if($user->roles->pluck('name')->first() == "student")
             <option value="{{$user->id}}">{{$user->name}}</option>
@@ -54,3 +54,9 @@
 </div>
 
 @endsection
+
+<script>
+$(document).ready(function () {
+
+});
+</script>

@@ -42,12 +42,22 @@ class GroupController extends Controller
     {
         //
         $group = new Group();
-        $group->group_id = $request->group_id;
-        $group->student_id = $request->student_id;
-        $group->student_name = User::where('id', $request->student_id)->pluck('name')->first();
-        $group->teacher_id = $request->teacher_id;
-        $group->teacher_name = User::where('id', $request->teacher_id)->pluck('name')->first();
-        $group->save();
+        $gr_id = $request->group_id;
+        $t_id = $request->teacher_id;
+        $t_nm = User::where('id', $t_id)->pluck('name')->first();
+        $array = [];
+        foreach($request->student_id as $key => $value){
+            $st_nm = User::where('id', $value)->pluck('name')->first();
+            $arr = [
+                "group_id" => $gr_id,
+                "student_id" => $value,
+                "student_name" => $st_nm,
+                "teacher_id" => $t_id,
+                "teacher_name" => $t_nm
+            ];
+            $array[] = $arr;
+        }
+        Group::insert($array);
         return redirect('group');
     }
 
