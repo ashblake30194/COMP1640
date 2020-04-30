@@ -47,7 +47,7 @@
 <script>
     var receiver_id = '';
     var my_id = "{{ Auth::id() }}";
-    var id_test= "{{ $user->group_id }}"
+    var id_test= "{{ $user->group_id ?? '' }}";
     $(document).ready(function () {
         // ajax setup form csrf token
         $.ajaxSetup({
