@@ -42,7 +42,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('admin') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -115,6 +115,10 @@
 
                               <a class="dropdown-item" href="{{ route('admin.users.index') }}">
                                   {{ __('User Management') }}
+                              </a>
+
+                              <a class="dropdown-item" href="{{ url('/') }}">
+                                  {{ __('Home') }}
                               </a>
 
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
