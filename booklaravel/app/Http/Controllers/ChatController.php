@@ -20,14 +20,21 @@ class ChatController extends Controller
     public function index()
     {
         $a = Auth::user()->id;
-        $users = DB::table('users')
-            ->select(array('groups.group_id','groups.teacher_name', 'users.avatar', 'groups.student_id', DB::raw('COUNT(messages.is_read) as unread')))
+        $user = DB::table('users')
+            ->select(array('groups.group_id', 'groups.teacher_id','groups.teacher_name', 'users.avatar', 'groups.student_id', DB::raw('COUNT(messages.is_read) as unread')))
             ->join('groups', 'groups.student_id', '=', 'users.id')
             ->join('messages', 'messages.to', '=', 'groups.group_id')
             ->where(['student_id'=> $a])
             ->orWhere(['teacher_id'=> $a])
-            ->groupBy('groups.group_id','groups.teacher_name', 'users.avatar', 'groups.student_id')
+            ->groupBy('groups.group_id', 'groups.teacher_id','groups.teacher_name', 'users.avatar', 'groups.student_id')
             ->get();
+
+        if(count($user) > 1 ) {
+            $users[] = $user[0];
+        } else {
+            $users = $user;
+        }
+
         return view('messages/chat', ['users' => $users]);
     }
 
