@@ -6,19 +6,11 @@
 @method('PATCH')
 <h2>Add Product</h2>
 <form action ="/group" method="post">
-
-
-                <div class="wrap-input100 validate-input">
-                    <input id="group_id" type="text" name="group_id" placeholder="Group ID">
-                    <span class="focus-input100" data-placeholder="&#xe82a;"></span>
-                </div>
-
-
             <div class="form-group">
-            <h5>If group exist</h5>
-            <select class="browser-default custom-select custom-select-lg mb-3" name="group_id">           
-            @foreach($groups as $group)
-            <option value="{{$group->group_id}}">{{$group->group_id}}</option>
+            <h5>Classroom</h5>
+            <select class="browser-default custom-select custom-select-lg mb-3" name="classroom_id">           
+            @foreach($classrooms as $classroom)
+            <option value="{{$classroom->id}}">{{$classroom->classroom}}</option>
             @endforeach
             </select>
             </div>

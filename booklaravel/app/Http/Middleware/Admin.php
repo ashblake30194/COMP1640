@@ -20,7 +20,10 @@ class Admin
         if (Auth::check() && Auth::user()->roles()->pluck('name')->first() == 'admin') {
             return $next($request);
         }
-        elseif (Auth::check() &&Auth::user()->roles()->pluck('name')->first() == 'staff') {
+        elseif (Auth::check() &&Auth::user()->roles()->pluck('name')->first() == 'staff'||
+                Auth::check() &&Auth::user()->roles()->pluck('name')->first() == 'student'||
+                Auth::check() &&Auth::user()->roles()->pluck('name')->first() == 'teacher')
+            {
             return redirect('/pages/error');
         }
     }

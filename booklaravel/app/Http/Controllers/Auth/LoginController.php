@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -38,8 +39,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:admin')->except('logout');
-        $this->middleware('guest:staff')->except('logout');
     }
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -53,13 +52,11 @@ class LoginController extends Controller
      * @param $guard
      * @return bool
      */
-    // protected function adminLogin(Request $request)
-    // {
-    // Auth::guard('admin')->attempt([
-    //             'email' => $request->email,
-    //             'password' => $request->password,
-    //         ],
-    //         $request->get('remember'));
-    //     return redirect()->intended('/admin/index');;
-    // }
+    public function authenticated(Request $request,User $user){
+        if($user->hasRole('admin')){
+            return redirect('admin/index');
+        }else{
+            return redirect('pages/index');
+        }
+    }
 }

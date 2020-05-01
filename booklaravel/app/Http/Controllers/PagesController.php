@@ -37,10 +37,4 @@ class PagesController extends Controller
        'user'=> Auth::user()->roles()->pluck('name')->first(),];
        return view('pages/error', $data);
    }
-
-   public function RegistrationType()
-   {
-       $data= ['title'=> 'Registration', ];
-       return view('pages/registration', $data);
-   }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Group;
 use App\User;
+use App\Classroom;
 class GroupController extends Controller
 {
     /**
@@ -27,9 +28,10 @@ class GroupController extends Controller
     public function create()
     {
         //
+        $classrooms = Classroom::all();
         $groups = Group::all();
         $users= User::all();
-        return view('group.create',compact('users','groups'));
+        return view('group.create',compact('users','groups','classrooms'));
     }
 
     /**
@@ -42,20 +44,22 @@ class GroupController extends Controller
     {
         //
         $group = new Group();
-        $gr_id = $request->group_id;
+        $gr_id = $request->classroom_id;
         $t_id = $request->teacher_id;
         $t_nm = User::where('id', $t_id)->pluck('name')->first();
+        $cr_nm = Classroom::where('id',$gr_id)->pluck('classroom')->first();
         $array = [];
         foreach($request->student_id as $key => $value){
             $st_nm = User::where('id', $value)->pluck('name')->first();
             $arr = [
                 "group_id" => $gr_id,
+                "classroom"=> $cr_nm,
                 "student_id" => $value,
                 "student_name" => $st_nm,
                 "teacher_id" => $t_id,
                 "teacher_name" => $t_nm
             ];
-            $array[] = $arr;
+            $array[]= $arr;
         }
         Group::insert($array);
         return redirect('group');

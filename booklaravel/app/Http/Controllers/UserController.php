@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Plan;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -47,8 +46,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         //
-        $plans = Plan::all();
-        return view('user/show', compact('users','plans'));
+
     }
 
     /**
@@ -67,8 +65,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->plans()->sync($request->plans);
-        return redirect('user');
+
     }
 
     /**
@@ -79,7 +76,6 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->plans()->detach();
-        return redirect('user');
+
     }
 }

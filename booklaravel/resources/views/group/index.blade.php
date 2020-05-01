@@ -14,7 +14,7 @@
 <table class="table">
   <thead>
     <tr>
-    <th scope="col">Group ID</th>
+    <th scope="col">Classroom</th>
     <th scope="col">Student ID</th>
     <th scope="col">Student Name</th>
     <th scope="col">Teacher ID</th>
@@ -27,7 +27,7 @@
   
      @foreach($groups as $group)
     <tr>
-        <td>{{ $group->group_id }}</td>
+        <td>{{ $group->classroom }}</td>
         <td>{{ $group->student_id }}</td>
         <td>{{ $group->student_name }}</td>
         <td>{{ $group->teacher_id }}</td>

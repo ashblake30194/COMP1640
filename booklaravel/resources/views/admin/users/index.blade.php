@@ -5,7 +5,7 @@
 <h1>Products</h1>
 </div>
 <div class="col-md-6">
-<a href="{{route('admin.book.create')}}" class="btn btn-primary pull-left">
+<a href="{{route('admin.users.create')}}" class="btn btn-primary pull-left">
 <!-- <a href="/admin/book/addBook" class="btn btn-primary pull-left"> -->
 <i class="fa fa-pencil">Add Book</i>
 </a>

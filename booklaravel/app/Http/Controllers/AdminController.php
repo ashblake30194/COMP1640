@@ -18,7 +18,6 @@ class AdminController extends Controller
     }
 
     public function show() {
-
         if (\Auth::check() ) {
             return redirect('/admin/index');
         } else {
