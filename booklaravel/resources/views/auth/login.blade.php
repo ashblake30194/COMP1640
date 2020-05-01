@@ -26,26 +26,30 @@
             <span class="login100-form-title p-b-41">
                 {{ __('Login') }}
             </span>
-            <p class="">
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </p>
             <form class="login100-form validate-form p-b-33 p-t-5" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="wrap-input100 validate-input">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror input100" 
-                            name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="User Email">
+                            name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="User Email" style="border: none;">
                     <span class="focus-input100" data-placeholder="&#xe82a;"></span>
-                    
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                 </div>
 
                 <div class="wrap-input100 validate-input">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror input100" 
-                            name="password" required autocomplete="current-password" placeholder="Password">
+                            name="password" required autocomplete="current-password" placeholder="Password" style="border: none;">
                     <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 <div>
@@ -73,8 +77,6 @@
 
 
 <div id="dropDownSelect1"></div>
-
-    <script src="{{asset('accountLogin/js/main.js')}}"></script>
 
 </body>
 </html>
