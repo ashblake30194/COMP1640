@@ -25,6 +25,7 @@ class ChatController extends Controller
             ->join('groups', 'groups.student_id', '=', 'users.id')
             ->join('messages', 'messages.to', '=', 'groups.group_id')
             ->where(['student_id'=> $a])
+            ->orWhere(['teacher_id'=> $a])
             ->groupBy('groups.group_id','groups.teacher_name', 'users.avatar', 'groups.student_id')
             ->get();
         return view('messages/chat', ['users' => $users]);
