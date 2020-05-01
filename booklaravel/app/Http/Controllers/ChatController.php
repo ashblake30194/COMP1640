@@ -21,12 +21,12 @@ class ChatController extends Controller
     {
         $a = Auth::user()->id;
         $user = DB::table('users')
-            ->select(array('groups.group_id', 'groups.teacher_id','groups.teacher_name', 'users.avatar', 'groups.student_id', DB::raw('COUNT(messages.is_read) as unread')))
+            ->select(array('groups.group_id', 'groups.teacher_id','groups.classroom', 'users.avatar', 'groups.student_id', DB::raw('COUNT(messages.is_read) as unread')))
             ->join('groups', 'groups.student_id', '=', 'users.id')
             ->join('messages', 'messages.to', '=', 'groups.group_id')
             ->where(['student_id'=> $a])
             ->orWhere(['teacher_id'=> $a])
-            ->groupBy('groups.group_id', 'groups.teacher_id','groups.teacher_name', 'users.avatar', 'groups.student_id')
+            ->groupBy('groups.group_id', 'groups.teacher_id','groups.classroom', 'users.avatar', 'groups.student_id')
             ->get();
 
         if(count($user) > 1 ) {
