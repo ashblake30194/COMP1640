@@ -72,4 +72,8 @@ $('#delete').on('show.bs.modal', function(event){
 })
 </script>
 
+<script>
+$('.table').DataTable();
+</script>
+
 @endsection
