@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 05:42 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.1.32
+-- Generation Time: May 02, 2020 at 07:05 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel_book`
+-- Database: `laravel_book7`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,8 @@ CREATE TABLE `classrooms` (
 --
 
 INSERT INTO `classrooms` (`id`, `classroom`, `created_at`, `updated_at`) VALUES
-(2, 'G123', '2020-05-01 05:55:35', '2020-05-01 05:55:35');
+(2, 'G123', '2020-05-01 05:55:35', '2020-05-01 05:55:35'),
+(3, 'TCS123', '2020-05-02 06:20:37', '2020-05-02 06:20:37');
 
 -- --------------------------------------------------------
 
@@ -56,6 +57,34 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `files`
+--
+
+CREATE TABLE `files` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `size` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `files`
+--
+
+INSERT INTO `files` (`id`, `name`, `size`, `created_at`, `updated_at`, `class_id`, `user_id`) VALUES
+(14, 'test.pdf', '966', '2020-05-02 04:29:41', '2020-05-02 04:29:41', 2, 45),
+(15, 'test1.pdf', '966', '2020-05-02 06:34:19', '2020-05-02 06:34:19', 2, 4),
+(16, 'test.pdf', '966', '2020-05-02 06:56:26', '2020-05-02 06:56:26', 3, 45),
+(17, 'test2.pdf', '966', '2020-05-02 07:00:23', '2020-05-02 07:00:23', 3, 40),
+(18, 'test3.pdf', '966', '2020-05-02 07:03:51', '2020-05-02 07:03:51', 2, 44),
+(19, 'test.pdf', '966', '2020-05-02 06:34:19', '2020-05-02 06:34:19', 2, 12);
 
 -- --------------------------------------------------------
 
@@ -80,7 +109,13 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id`, `group_id`, `classroom`, `student_id`, `student_name`, `teacher_id`, `teacher_name`, `created_at`, `updated_at`) VALUES
-(9, 2, 'G123', 3, 'Ava Nitzsche', 8, 'Miss Kelly Reynolds', NULL, NULL);
+(9, 2, 'G123', 3, 'Ava Nitzsche', 8, 'Miss Kelly Reynolds', NULL, NULL),
+(10, 3, 'TCS123', 3, 'Ava Nitzsche', 45, 'Duy02', NULL, NULL),
+(11, 3, 'TCS123', 40, 'Test3', 45, 'Duy02', NULL, NULL),
+(12, 3, 'TCS123', 44, 'Duy03', 45, 'Duy02', NULL, NULL),
+(13, 2, 'G123', 4, 'Miss Francesca Kris III', 45, 'Duy02', NULL, NULL),
+(14, 2, 'G123', 44, 'Duy03', 45, 'Duy02', NULL, NULL),
+(15, 2, 'G123', 44, 'Duy03', 12, 'Duy02', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -831,7 +866,9 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`)
 (18, 4, 12, NULL, NULL),
 (19, 2, 39, NULL, NULL),
 (20, 3, 40, NULL, NULL),
-(23, 3, 43, NULL, NULL);
+(23, 3, 43, NULL, NULL),
+(24, 3, 44, NULL, NULL),
+(25, 4, 45, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -890,7 +927,7 @@ INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `email_verified_at`, `pass
 (28, 'Dr. Olen Herman V', 'https://via.placeholder.com/150', 'zoila05@example.org', '2020-04-13 03:38:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'lpVMl0fIkf', '2020-04-13 03:38:10', '2020-04-13 03:38:10', NULL, NULL, NULL, NULL),
 (29, 'Mr. Sherwood Cole', 'https://via.placeholder.com/150', 'lula.nolan@example.org', '2020-04-13 03:38:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'wB6y4thOht', '2020-04-13 03:38:10', '2020-04-13 03:38:10', NULL, NULL, NULL, NULL),
 (30, 'Katarina Watsica', 'https://via.placeholder.com/150', 'vgottlieb@example.net', '2020-04-13 03:38:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'EbMlkkwJxJ', '2020-04-13 03:38:10', '2020-04-13 03:38:10', NULL, NULL, NULL, NULL),
-(31, 'admin', 'https://via.placeholder.com/150', 'admin@gmail.com', '2020-04-06 17:32:52', '$2y$10$LeZJQZkybwi8jG.KeIK0tuM9bg.9ukIx7Hu/N8z3JtSetYatJGzJW', 'NoMMO1jBTG9CYx0llhOqzotySpwQyekUOMSDn20jZOZOnUuFTANggkSOQ5c3', '2020-04-06 17:28:30', '2020-04-06 17:32:52', NULL, NULL, NULL, NULL),
+(31, 'admin', 'https://via.placeholder.com/150', 'admin@gmail.com', '2020-04-06 17:32:52', '$2y$10$LeZJQZkybwi8jG.KeIK0tuM9bg.9ukIx7Hu/N8z3JtSetYatJGzJW', 'iDl9sBwOQRho302vEVQ6uxbuB7mgImRETrze0Kt8Ar4qhhRkkhrDve95FKPR', '2020-04-06 17:28:30', '2020-04-06 17:32:52', NULL, NULL, NULL, NULL),
 (32, 'Test', 'https://via.placeholder.com/150', 'test@gmail.com', NULL, '$2y$10$dfqjQjfsnpPY3O3CGFwrKuTx4ijOMY7jXbnyB1ibbBOEtPqchCtt6', NULL, '2020-04-06 19:00:04', '2020-04-06 19:00:04', NULL, NULL, NULL, NULL),
 (33, 'Duy', 'https://via.placeholder.com/150', 'duy@gmail.com', NULL, '$2y$10$SZL2oNi0r3ypi2M31NJ5Yu9oppXUj4OQnsoIKiD5396WGtbk0fBCC', NULL, '2020-04-14 03:21:32', '2020-04-14 03:21:32', NULL, NULL, NULL, NULL),
 (34, 'Tom', 'https://via.placeholder.com/150', 'tom@gmail.com', NULL, '$2y$10$LMyZZ.ROKB/J/PAdHlXM/uMK/3f.VsHyrnwTfvx7dj1gZjJLQnPgO', NULL, '2020-04-20 05:28:57', '2020-04-20 05:28:57', NULL, NULL, NULL, NULL),
@@ -898,7 +935,9 @@ INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `email_verified_at`, `pass
 (38, 'Test', 'https://via.placeholder.com/150', 'lol@gmail.com', NULL, '$2y$10$kVXOYKGlXeOzBNG2PQ6axelPrZxiDWs9XO2JYiXH6fjWay8FBPDKq', NULL, '2020-04-20 12:07:11', '2020-04-20 12:07:11', NULL, NULL, NULL, NULL),
 (39, 'Test3', 'https://via.placeholder.com/150', 'test03@gmail.com', NULL, '$2y$10$/H7JhpC.KJPALVvchkXvlOKhJSGNB.9.x9b4CczCTC/Rd8dn7SQGW', NULL, '2020-04-27 07:13:07', '2020-04-27 07:13:07', NULL, NULL, NULL, NULL),
 (40, 'Test3', 'https://via.placeholder.com/150', 'test05@gmail.com', NULL, '$2y$10$TEmi1t.dWtiMfvIjG6rPWOZxMw.hgL0GGGTZxo9sRG0C.bEtBTx8i', NULL, '2020-04-28 20:04:36', '2020-04-28 20:04:36', NULL, NULL, NULL, NULL),
-(43, 'Maes', 'https://via.placeholder.com/150', 'test99@gmail.com', NULL, '$2y$10$414gZTrsKDK6bfotdYT/fupm9dk2ZASazBvAap4RvzCMPQI1Tx4wq', NULL, '2020-05-01 08:12:18', '2020-05-01 08:12:18', NULL, NULL, NULL, NULL);
+(43, 'Maes', 'https://via.placeholder.com/150', 'test99@gmail.com', NULL, '$2y$10$414gZTrsKDK6bfotdYT/fupm9dk2ZASazBvAap4RvzCMPQI1Tx4wq', NULL, '2020-05-01 08:12:18', '2020-05-01 08:12:18', NULL, NULL, NULL, NULL),
+(44, 'Duy03', 'https://via.placeholder.com/150', 'duy03@gmail.com', NULL, '$2y$10$lTW2Y5QkEMz2jIRPHcvv3eEy8dLvQhekuOaCaF0mJJ6pjeqh7uUKu', NULL, '2020-05-02 04:29:03', '2020-05-02 04:29:03', NULL, NULL, NULL, NULL),
+(45, 'Duy02', 'https://via.placeholder.com/150', 'duy02@gmail.com', NULL, '$2y$10$ETpI6sbN39voTcKSxwTy4OMa9m1k.A0D79RSqA5Pi03Ir9fd5/eL6', NULL, '2020-05-02 05:39:47', '2020-05-02 05:39:47', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -914,6 +953,12 @@ ALTER TABLE `classrooms`
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `files`
+--
+ALTER TABLE `files`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -974,7 +1019,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `classrooms`
 --
 ALTER TABLE `classrooms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -983,10 +1028,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `issues`
@@ -1016,13 +1067,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

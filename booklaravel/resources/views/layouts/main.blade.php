@@ -213,7 +213,11 @@
     <i class="fas fa-fw fa-comments"></i>
     <span>Chat</span></span></a>
 </li>
-
+<li class="nav-item">
+  <a class="nav-link" href="/file-upload">
+    <i class="fa fa-download"></i>
+    <span>Upload</span></span></a>
+</li>
   <!-- Divider -->
   <hr class="sidebar-divider">
 
@@ -325,6 +329,11 @@
   <a class="nav-link" href="/chat">
     <i class="fas fa-fw fa-comments"></i>
     <span>Chat</span></span></a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/file-upload">
+    <i class="fa fa-download"></i>
+    <span>Upload</span></span></a>
 </li>
   <!-- Heading -->
   <!-- Nav Item - Pages Collapse Menu -->

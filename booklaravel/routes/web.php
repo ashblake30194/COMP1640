@@ -44,3 +44,7 @@ Route::post('chat', 'ChatController@sendMessage');
 
 Route::get('/message/{id}', 'HomeController@getMessage')->name('message');
 Route::post('message', 'HomeController@sendMessage');
+
+Route::get('file-upload', 'FileUploadController@index');
+Route::get('download-file', 'FileUploadController@downfunc');
+Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
