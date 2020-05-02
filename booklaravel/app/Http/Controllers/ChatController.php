@@ -31,6 +31,7 @@ class ChatController extends Controller
 
         //check if the same group_id
         $i = 0;
+        $users = [];
         $array = [];
         foreach ($user as $key=>$value){
             $array[$i] = $value->group_id;
