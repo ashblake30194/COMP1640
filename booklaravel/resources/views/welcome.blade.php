@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Book</title>
+        <title>Laravel Study</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -85,9 +85,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="/admin/index">Book Admin</a>
-                    <a href="/pages/index">Book Staff</a>
-                    <a href="#">About This Project</a>
+                    <a href="/admin/index">Study Admin</a>
+                    <a href="/pages/index">Study Staff</a>
                 </div>
             </div>
         </div>

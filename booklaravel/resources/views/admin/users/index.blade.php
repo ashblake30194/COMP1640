@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col-md-6">
-<h1>Products</h1>
+<h1>User Management</h1>
 </div>
 <div class="col-md-6">
 <a href="{{route('admin.users.create')}}" class="btn btn-primary pull-left">
@@ -30,11 +30,12 @@
       <td>{{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
       <td>
       <a class="btn btn-primary" href="{{route('admin.users.edit', $user->id)}}">edit </a>
+      <a class="btn btn-primary" href="{{route('admin.users.edit', $user->id)}}">Delete </a>
       <form class="btn btn-danger" action="{{route('admin.users.destroy', $user->id)}}" method="post">
        @method('DELETE')
 
        @csrf
-      <input type="submit" value="Delete" class="btn btn-danger">
+      <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure ?')">
       </form>
 
       </td>

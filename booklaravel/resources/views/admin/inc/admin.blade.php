@@ -47,6 +47,12 @@
           <span>Dashboard</span></a>
       </li>
 
+      <li class="nav-item">
+    <a class="nav-link" href="{{route('classroom.index')}}">
+      <i class="fas fa-fw fa-address-card"></i>
+      <span>Classrooms</span></span></a>
+  </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
