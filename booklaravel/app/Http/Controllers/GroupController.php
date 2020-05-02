@@ -61,7 +61,17 @@ class GroupController extends Controller
             ];
             $array[]= $arr;
         }
-        Group::insert($array);
+
+        $list = [];
+        foreach($array as $key => $value){
+            $check_value = Group::where('student_id', $value['student_id'])->where('classroom', $value['classroom'])->where('teacher_id', $value['teacher_id'])->exists();
+            if (!$check_value){
+                $list[] = $value;
+            }
+
+        }
+
+        Group::insert($list);
         return redirect('group');
     }
 
