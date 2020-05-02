@@ -25,7 +25,7 @@
                                     </div>
 
                                     <div class="media-body">
-                                        <p class="name">{{ $user->classroom }}</p>
+                                        <p class="name">{{ $user->classroom }}_{{ $user->teacher_name }}</p>
                                     </div>
                                 </div>
                             </li>

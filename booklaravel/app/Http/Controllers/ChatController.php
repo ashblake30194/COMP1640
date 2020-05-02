@@ -19,20 +19,32 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $a = Auth::user()->id;
+        $id = Auth::user()->id;
         $user = DB::table('users')
-            ->select(array('groups.group_id', 'groups.teacher_id','groups.classroom', 'users.avatar', 'groups.student_id', DB::raw('COUNT(messages.is_read) as unread')))
+            ->select(array('groups.group_id', 'groups.teacher_id', 'groups.teacher_name','groups.classroom', 'users.avatar', 'groups.student_id', DB::raw('COUNT(messages.is_read) as unread')))
             ->join('groups', 'groups.student_id', '=', 'users.id')
             ->join('messages', 'messages.to', '=', 'groups.group_id')
-            ->where(['student_id'=> $a])
-            ->orWhere(['teacher_id'=> $a])
-            ->groupBy('groups.group_id', 'groups.teacher_id','groups.classroom', 'users.avatar', 'groups.student_id')
+            ->where(['student_id'=> $id])
+            ->orWhere(['teacher_id'=> $id])
+            ->groupBy('groups.group_id', 'groups.teacher_id', 'groups.teacher_name','groups.classroom', 'users.avatar', 'groups.student_id')
             ->get();
 
-        if(count($user) > 1 ) {
-            $users[] = $user[0];
-        } else {
-            $users = $user;
+        //check if the same group_id
+        $i = 0;
+        $array = [];
+        foreach ($user as $key=>$value){
+            $array[$i] = $value->group_id;
+            if($key >= 1){
+                if($value->group_id == $array[$i-1]){
+                    $i++;
+                } else {
+                    $users[] = $value;
+                    $i++;
+                }
+            } else {
+                $users[] = $value;
+                $i++;
+            }
         }
 
         return view('messages/chat', ['users' => $users]);
