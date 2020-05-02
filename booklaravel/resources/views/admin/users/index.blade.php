@@ -30,7 +30,7 @@
       <td>{{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
       <td>
       <a class="btn btn-primary" href="{{route('admin.users.edit', $user->id)}}">edit </a>
-      <button class="btn btn-primary" data-userid="{{$user->id}}" data-toggle="modal" data-target="#delete">Delete </button>
+      <button class="btn btn-danger" data-userid="{{$user->id}}" data-toggle="modal" data-target="#delete">Delete </button>
 
       </td>
       </tr>
