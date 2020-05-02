@@ -72,10 +72,12 @@ class UsersController extends Controller
         return redirect('admin/users');
     }
 
-    public function destroy(User $user)
-    {
+    public function destroy(Request $request, User $user)
+    {   
+        $delete=$request->all();
+        $user=User::findOrfail($request->user_id);
         $user->roles()->detach();
         $user->delete();
-        return redirect('admin/users');
+        return redirect()->route('admin.users.index');
     }
 }
