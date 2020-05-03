@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2020 at 07:05 PM
+-- Generation Time: May 03, 2020 at 06:14 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.27
+-- PHP Version: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel_book7`
+-- Database: `laravel_book`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +41,8 @@ CREATE TABLE `classrooms` (
 
 INSERT INTO `classrooms` (`id`, `classroom`, `created_at`, `updated_at`) VALUES
 (2, 'G123', '2020-05-01 05:55:35', '2020-05-01 05:55:35'),
-(3, 'TCS123', '2020-05-02 06:20:37', '2020-05-02 06:20:37');
+(3, 'TCS123', '2020-05-02 06:20:37', '2020-05-02 06:20:37'),
+(4, 'TCS2003', '2020-05-02 21:13:15', '2020-05-02 21:13:15');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,10 @@ INSERT INTO `files` (`id`, `name`, `size`, `created_at`, `updated_at`, `class_id
 (16, 'test.pdf', '966', '2020-05-02 06:56:26', '2020-05-02 06:56:26', 3, 45),
 (17, 'test2.pdf', '966', '2020-05-02 07:00:23', '2020-05-02 07:00:23', 3, 40),
 (18, 'test3.pdf', '966', '2020-05-02 07:03:51', '2020-05-02 07:03:51', 2, 44),
-(19, 'test.pdf', '966', '2020-05-02 06:34:19', '2020-05-02 06:34:19', 2, 12);
+(19, 'test.pdf', '966', '2020-05-02 06:34:19', '2020-05-02 06:34:19', 2, 12),
+(20, 'COMP1640_Ngo Nguyen Song Nguyen_TCS2003_testIndividual.pdf', '81322', '2020-05-02 21:16:31', '2020-05-02 21:16:31', 4, 47),
+(21, 'COMP1640_Ngo Nguyen Song Nguyen_TCS2003_testIndividual.pdf', '81322', '2020-05-02 21:26:13', '2020-05-02 21:26:13', 4, 46),
+(22, 'COMP1787_Ngo Nguyen Song Nguyen_TCS2003_test.pdf', '81322', '2020-05-02 21:26:33', '2020-05-02 21:26:33', 4, 46);
 
 -- --------------------------------------------------------
 
@@ -115,7 +119,9 @@ INSERT INTO `groups` (`id`, `group_id`, `classroom`, `student_id`, `student_name
 (12, 3, 'TCS123', 44, 'Duy03', 45, 'Duy02', NULL, NULL),
 (13, 2, 'G123', 4, 'Miss Francesca Kris III', 45, 'Duy02', NULL, NULL),
 (14, 2, 'G123', 44, 'Duy03', 45, 'Duy02', NULL, NULL),
-(15, 2, 'G123', 44, 'Duy03', 12, 'Duy02', NULL, NULL);
+(15, 2, 'G123', 44, 'Duy03', 12, 'Duy02', NULL, NULL),
+(16, 4, 'TCS2003', 46, 'Will', 47, 'Johnathan', NULL, NULL),
+(17, 4, 'TCS2003', 49, 'Rose', 47, 'Johnathan', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -158,11 +164,11 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (3, 9, 18, 'Ut autem natus nobis commodi incidunt.', 0, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
 (4, 29, 23, 'Eum qui ullam ducimus praesentium incidunt.', 1, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
 (5, 8, 12, 'Ea a optio voluptatem amet omnis ea.', 0, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
-(6, 4, 7, 'Voluptate unde dolorem et est.', 1, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
+(6, 4, 7, 'Voluptate unde dolorem et est.', 1, '2020-04-13 03:38:34', '2020-05-03 07:04:38'),
 (7, 30, 21, 'Quia possimus minus voluptate magni sed occaecati consequatur.', 0, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
 (8, 27, 10, 'Corrupti illo vel veritatis id et.', 1, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
 (9, 9, 10, 'Repudiandae aspernatur sunt aut id consequuntur laboriosam.', 0, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
-(10, 4, 7, 'Voluptates dicta voluptate minus.', 1, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
+(10, 4, 7, 'Voluptates dicta voluptate minus.', 1, '2020-04-13 03:38:34', '2020-05-03 07:04:38'),
 (11, 29, 4, 'Atque voluptatem incidunt reprehenderit blanditiis velit quis.', 1, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
 (12, 18, 26, 'Voluptatem repudiandae excepturi aut illo animi.', 1, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
 (13, 6, 23, 'Magnam vel dolore occaecati enim ullam sed libero.', 0, '2020-04-13 03:38:34', '2020-04-13 03:38:34'),
@@ -250,7 +256,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (95, 9, 12, 'Voluptatem minima nisi quos iure sint.', 0, '2020-04-13 04:11:37', '2020-04-13 04:11:37'),
 (96, 10, 18, 'Sit qui quia illum.', 1, '2020-04-13 04:11:37', '2020-04-13 04:11:37'),
 (97, 2, 22, 'Voluptas aliquam est sint sint placeat odit aut.', 0, '2020-04-13 04:11:37', '2020-04-13 04:11:37'),
-(98, 4, 5, 'Tenetur eos aut praesentium modi molestias consequatur.', 0, '2020-04-13 04:11:37', '2020-04-13 04:11:37'),
+(98, 4, 5, 'Tenetur eos aut praesentium modi molestias consequatur.', 1, '2020-04-13 04:11:37', '2020-05-03 07:04:38'),
 (99, 30, 26, 'A deleniti enim rerum voluptatem velit omnis.', 1, '2020-04-13 04:11:37', '2020-04-13 04:11:37'),
 (100, 2, 22, 'Vel quia corrupti ut et.', 0, '2020-04-13 04:11:37', '2020-04-13 04:11:37'),
 (101, 19, 9, 'Laboriosam dicta eaque dignissimos enim alias sed necessitatibus.', 0, '2020-04-13 04:11:37', '2020-04-13 04:11:37'),
@@ -285,7 +291,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (130, 5, 30, 'Nihil et consequatur occaecati natus sequi qui.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (131, 16, 11, 'Repellendus optio laborum velit modi.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (132, 12, 26, 'Ut enim et amet.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(133, 4, 7, 'Distinctio ea ratione ea consequatur.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(133, 4, 7, 'Distinctio ea ratione ea consequatur.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (134, 12, 23, 'Incidunt dolor ipsa non sit deleniti.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (135, 7, 15, 'Corporis dolorum quidem neque et enim quo quis.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (136, 9, 4, 'Quaerat quod eum quasi unde nam quia.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -299,7 +305,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (144, 24, 20, 'Sint dolorum natus reprehenderit quam qui modi nihil.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (145, 27, 19, 'Reprehenderit aut ullam consequatur animi.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (146, 7, 30, 'Id fuga possimus cum dicta.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(147, 4, 13, 'Iure ad ut saepe iste dicta impedit unde.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(147, 4, 13, 'Iure ad ut saepe iste dicta impedit unde.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (148, 15, 29, 'Totam nisi et dolorem ut.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (149, 27, 8, 'Earum et sequi omnis error possimus.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (150, 24, 28, 'Quam dolores commodi excepturi architecto explicabo ipsam.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -336,7 +342,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (181, 19, 24, 'Repellat aut odit velit.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (182, 19, 3, 'Nihil et officiis sed tenetur ut reprehenderit iure.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (183, 3, 11, 'Vel non commodi explicabo eveniet.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(184, 4, 19, 'Molestiae cum alias voluptate quis.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(184, 4, 19, 'Molestiae cum alias voluptate quis.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (185, 23, 1, 'Voluptas est tempore hic corrupti similique ut voluptatem.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (186, 30, 2, 'Sint eaque neque hic eius soluta perspiciatis dolorem.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (187, 2, 24, 'Alias deserunt voluptates rerum.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -348,7 +354,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (193, 27, 10, 'Aperiam vero sint incidunt repellat autem.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (194, 21, 10, 'Aut reprehenderit autem dolorem suscipit commodi et.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (195, 30, 27, 'Voluptas est et aperiam officiis qui sapiente ut.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(196, 4, 10, 'Reprehenderit velit occaecati quaerat ipsum ipsum fuga.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(196, 4, 10, 'Reprehenderit velit occaecati quaerat ipsum ipsum fuga.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (197, 20, 13, 'Aut amet repudiandae quia in qui animi.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (198, 3, 8, 'Alias debitis et voluptate.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (199, 16, 12, 'Adipisci officia voluptas voluptas explicabo facere.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -356,7 +362,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (201, 14, 17, 'Rem illo est consectetur eos.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (202, 21, 18, 'Consequatur veniam delectus doloremque ratione consequatur.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (203, 7, 23, 'Qui id quas quia eos totam.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(204, 4, 14, 'Eum et ipsam odio atque rerum et ratione.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(204, 4, 14, 'Eum et ipsam odio atque rerum et ratione.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (205, 26, 10, 'Eaque et occaecati inventore exercitationem.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (206, 5, 6, 'Excepturi officiis quia delectus amet.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (207, 27, 17, 'Voluptas ipsam quis impedit ut adipisci quaerat enim.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -376,12 +382,12 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (221, 5, 19, 'Nemo maxime possimus ipsum quam.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (222, 29, 4, 'Harum dolores sed hic numquam aut quasi aut iure.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (223, 11, 30, 'Blanditiis quisquam illum ducimus possimus.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(224, 4, 23, 'Repudiandae ut magnam et fugit.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(224, 4, 23, 'Repudiandae ut magnam et fugit.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (225, 23, 9, 'Reprehenderit ad ipsam alias excepturi ex eum consequatur.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (226, 20, 16, 'Vero aut provident temporibus debitis tenetur.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (227, 16, 23, 'Corporis voluptate culpa ut rerum.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (228, 18, 13, 'Ut architecto quod veniam aut veritatis dolore similique reiciendis.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(229, 4, 27, 'Fugit et eos corporis at iste.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(229, 4, 27, 'Fugit et eos corporis at iste.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (230, 12, 11, 'Et facilis velit enim inventore.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (231, 14, 5, 'Quis omnis et saepe ut.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (232, 20, 19, 'Nesciunt rerum magnam deserunt cumque quos mollitia unde.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -393,7 +399,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (238, 16, 10, 'Quo voluptatem mollitia illo veniam earum eum quidem.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (239, 6, 18, 'Consequatur corporis eligendi sit sed velit aut dolores.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (240, 18, 6, 'Cupiditate corporis placeat sed tenetur soluta quos aspernatur pariatur.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(241, 4, 9, 'Suscipit fuga omnis aliquam dolore provident.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(241, 4, 9, 'Suscipit fuga omnis aliquam dolore provident.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (242, 9, 18, 'Et impedit minus et repellat incidunt esse esse cumque.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (243, 26, 14, 'Delectus in et ut recusandae molestiae.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (244, 17, 23, 'Vel ut laborum et corrupti.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -404,15 +410,15 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (249, 12, 30, 'Quis excepturi quis temporibus dolor nisi est eos quibusdam.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (250, 17, 28, 'Aliquid assumenda eum ut minus.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (251, 13, 20, 'Qui aut corrupti ex voluptatibus reiciendis numquam quo.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(252, 4, 2, 'Et illum hic repellendus.', 1, '2020-04-13 04:11:38', '2020-04-13 05:56:02'),
+(252, 4, 2, 'Et illum hic repellendus.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (253, 3, 17, 'Quas ut vel sit quisquam.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (254, 9, 1, 'Culpa quae explicabo nostrum nulla.', 1, '2020-04-13 04:11:38', '2020-04-13 04:19:05'),
 (255, 21, 6, 'Corporis voluptatum quaerat aut eligendi sed ratione soluta.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (256, 5, 21, 'Esse qui harum repellendus non veritatis enim odio.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (257, 26, 22, 'Tempora ut aperiam consequatur iusto omnis numquam nemo rerum.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (258, 7, 1, 'Non ea atque autem aut voluptates accusantium.', 1, '2020-04-13 04:11:38', '2020-04-13 04:19:04'),
-(259, 4, 2, 'Ex ipsa quidem magni cumque quam.', 1, '2020-04-13 04:11:38', '2020-04-13 05:56:02'),
-(260, 4, 30, 'Numquam non architecto rem nisi facere soluta.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(259, 4, 2, 'Ex ipsa quidem magni cumque quam.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
+(260, 4, 30, 'Numquam non architecto rem nisi facere soluta.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (261, 9, 3, 'Eum soluta ea sed pariatur a.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (262, 17, 15, 'Dolor cumque esse hic dolores.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (263, 1, 7, 'Non ad omnis sed eaque quia est in molestias.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -436,7 +442,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (281, 6, 11, 'Velit dolor eos quia placeat.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (282, 29, 23, 'Quis exercitationem sint rerum.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (283, 9, 3, 'Error et autem exercitationem laboriosam.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(284, 4, 15, 'Necessitatibus aut explicabo corporis aut omnis iste.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(284, 4, 15, 'Necessitatibus aut explicabo corporis aut omnis iste.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (285, 29, 20, 'Enim voluptatem et dicta laboriosam quae eveniet.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (286, 3, 7, 'Fuga et perspiciatis iusto sit vel tenetur id.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (287, 24, 22, 'Nam est ut debitis culpa adipisci temporibus impedit nesciunt.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
@@ -463,7 +469,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (308, 20, 3, 'Nisi pariatur et fugit.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (309, 15, 26, 'Rem occaecati illo qui est alias odio.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (310, 7, 17, 'Id et repellat vitae nesciunt consequatur omnis.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
-(311, 4, 20, 'Est a omnis et asperiores reiciendis aut.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
+(311, 4, 20, 'Est a omnis et asperiores reiciendis aut.', 1, '2020-04-13 04:11:38', '2020-05-03 07:04:38'),
 (312, 5, 8, 'Quia dolores officia voluptatem sapiente non vero.', 1, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (313, 18, 13, 'Quo delectus iure necessitatibus exercitationem.', 0, '2020-04-13 04:11:38', '2020-04-13 04:11:38'),
 (314, 24, 20, 'Non ut reiciendis id voluptates voluptas dolorem.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
@@ -486,7 +492,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (331, 9, 15, 'Exercitationem natus praesentium aut.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (332, 18, 26, 'Adipisci quidem et dolorem dolorem fugit aspernatur.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (333, 6, 12, 'Quo veniam sapiente pariatur et perspiciatis.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(334, 4, 1, 'Qui facilis ut aut sint.', 1, '2020-04-13 04:11:39', '2020-04-13 04:19:01'),
+(334, 4, 1, 'Qui facilis ut aut sint.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (335, 30, 22, 'Ut excepturi officia ipsa dolorem aliquid.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (336, 23, 13, 'Velit aut suscipit iure sequi consectetur possimus.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (337, 2, 22, 'Soluta sunt neque iusto temporibus.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
@@ -545,7 +551,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (390, 10, 13, 'Occaecati qui sapiente esse inventore accusantium ex blanditiis.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (391, 14, 27, 'Dolor illum nesciunt provident quis eos et.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (392, 1, 5, 'Suscipit ea enim sequi.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(393, 4, 29, 'Dolores ut eius architecto in molestias odit.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
+(393, 4, 29, 'Dolores ut eius architecto in molestias odit.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (394, 2, 14, 'Blanditiis optio molestiae accusamus consequatur ut asperiores ut.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (395, 15, 27, 'Ratione sed quo laudantium.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (396, 1, 23, 'Quo minus odit sunt ducimus ut doloremque.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
@@ -558,7 +564,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (403, 10, 26, 'Vitae velit ut laudantium impedit autem.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (404, 14, 26, 'Et sed et et et beatae earum sequi.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (405, 25, 13, 'Dolorem voluptas ut vel maxime.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(406, 4, 2, 'Eum deleniti porro qui sint.', 1, '2020-04-13 04:11:39', '2020-04-13 05:56:02'),
+(406, 4, 2, 'Eum deleniti porro qui sint.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (407, 28, 16, 'Voluptates dolor cum commodi quasi reiciendis neque.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (408, 14, 4, 'Id id et fugit laboriosam quia repellendus ab.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (409, 1, 2, 'Impedit sed ut voluptates.', 1, '2020-04-13 04:11:39', '2020-04-13 08:05:59'),
@@ -570,11 +576,11 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (415, 8, 30, 'Odio reprehenderit temporibus dolor est.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (416, 21, 12, 'Necessitatibus ut optio et qui molestias adipisci quas cupiditate.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (417, 27, 29, 'Qui vero placeat omnis dolorem quaerat iure.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(418, 4, 21, 'Non optio sapiente laboriosam.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
+(418, 4, 21, 'Non optio sapiente laboriosam.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (419, 3, 19, 'Consequatur qui perspiciatis consectetur ut ea.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (420, 29, 28, 'Quisquam dolores quas quia sit.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (421, 8, 20, 'Voluptates et iste accusantium quasi.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(422, 4, 1, 'Praesentium voluptatem dicta corporis in amet.', 1, '2020-04-13 04:11:39', '2020-04-13 04:19:01'),
+(422, 4, 1, 'Praesentium voluptatem dicta corporis in amet.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (423, 26, 11, 'Neque facere ea sit pariatur iusto.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (424, 7, 9, 'Qui qui voluptate non.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (425, 5, 15, 'Mollitia sed dolorem minima accusamus tempora itaque temporibus.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
@@ -597,7 +603,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (442, 2, 13, 'Ut quasi ipsum qui nemo.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (443, 14, 22, 'Aspernatur repellendus quam eveniet non voluptatem.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (444, 24, 3, 'Enim ut et eum.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(445, 4, 12, 'Ea animi aut voluptas aut et et sit.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
+(445, 4, 12, 'Ea animi aut voluptas aut et et sit.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (446, 14, 26, 'Odio qui aspernatur molestiae exercitationem modi porro qui.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (447, 3, 15, 'Nihil perferendis laboriosam molestiae sint libero.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (448, 17, 3, 'Ipsam ratione consequatur nostrum.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
@@ -651,7 +657,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (495, 10, 16, 'Occaecati doloribus inventore dolores doloribus quia doloribus iste.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (496, 10, 23, 'Id similique alias vitae aut sed possimus optio aut.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (497, 25, 11, 'Fuga nesciunt minima facilis et placeat et.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(498, 4, 10, 'Quia labore debitis omnis et magnam commodi.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
+(498, 4, 10, 'Quia labore debitis omnis et magnam commodi.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (499, 15, 27, 'Rem reprehenderit aliquam et quia.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (500, 21, 26, 'Laudantium nulla adipisci et aut maiores laudantium sit.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (501, 18, 12, 'Amet voluptates enim aut est.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
@@ -674,7 +680,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (518, 14, 1, 'Illum non quibusdam doloribus aspernatur et quia cupiditate officia.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (519, 5, 9, 'Animi dicta molestiae repellendus omnis voluptatem tenetur dignissimos.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (520, 26, 28, 'Similique officia quia est sit accusamus minima.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(521, 4, 1, 'Repellat aliquid quam labore sapiente autem beatae.', 1, '2020-04-13 04:11:39', '2020-04-13 04:19:01'),
+(521, 4, 1, 'Repellat aliquid quam labore sapiente autem beatae.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (522, 11, 18, 'Impedit eum sed rem rerum quibusdam.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (523, 10, 26, 'Ut aut quae eaque.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (524, 30, 3, 'Perspiciatis quam harum sed provident ab dolor voluptatem.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
@@ -684,7 +690,7 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (528, 7, 2, 'Modi fuga qui voluptas odit.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (529, 16, 28, 'Unde velit nemo consequatur non unde.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (530, 2, 5, 'Quod voluptatem velit odio perferendis.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
-(531, 4, 22, 'Vel hic non ullam.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
+(531, 4, 22, 'Vel hic non ullam.', 1, '2020-04-13 04:11:39', '2020-05-03 07:04:38'),
 (532, 12, 2, 'Qui non id aut laborum molestiae quo autem.', 1, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (533, 24, 11, 'Ea nihil laboriosam voluptatem qui.', 0, '2020-04-13 04:11:39', '2020-04-13 04:11:39'),
 (534, 10, 22, 'Voluptate fugit soluta ipsum.', 1, '2020-04-13 04:11:40', '2020-04-13 04:11:40'),
@@ -760,7 +766,10 @@ INSERT INTO `messages` (`id`, `from`, `to`, `message`, `is_read`, `created_at`, 
 (604, 31, 33, 'Hallo', 0, '2020-04-17 19:58:20', '2020-04-17 19:58:20'),
 (605, 32, 31, 'Sup?', 1, '2020-04-17 19:59:15', '2020-04-17 20:08:49'),
 (606, 32, 31, 'Im testing', 1, '2020-04-17 19:59:41', '2020-04-17 20:08:49'),
-(607, 31, 32, 'Halo', 0, '2020-04-17 20:08:21', '2020-04-17 20:08:21');
+(607, 31, 32, 'Halo', 0, '2020-04-17 20:08:21', '2020-04-17 20:08:21'),
+(608, 46, 4, 'hello', 0, '2020-05-02 21:15:07', '2020-05-02 21:15:07'),
+(609, 47, 4, 'Hello everyone', 0, '2020-05-02 21:15:37', '2020-05-02 21:15:37'),
+(610, 49, 4, 'Good afternoon teacher', 0, '2020-05-03 07:04:37', '2020-05-03 07:04:37');
 
 -- --------------------------------------------------------
 
@@ -868,7 +877,11 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`)
 (20, 3, 40, NULL, NULL),
 (23, 3, 43, NULL, NULL),
 (24, 3, 44, NULL, NULL),
-(25, 4, 45, NULL, NULL);
+(25, 4, 45, NULL, NULL),
+(26, 3, 46, NULL, NULL),
+(27, 4, 47, NULL, NULL),
+(28, 2, 48, NULL, NULL),
+(29, 3, 49, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -927,7 +940,7 @@ INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `email_verified_at`, `pass
 (28, 'Dr. Olen Herman V', 'https://via.placeholder.com/150', 'zoila05@example.org', '2020-04-13 03:38:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'lpVMl0fIkf', '2020-04-13 03:38:10', '2020-04-13 03:38:10', NULL, NULL, NULL, NULL),
 (29, 'Mr. Sherwood Cole', 'https://via.placeholder.com/150', 'lula.nolan@example.org', '2020-04-13 03:38:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'wB6y4thOht', '2020-04-13 03:38:10', '2020-04-13 03:38:10', NULL, NULL, NULL, NULL),
 (30, 'Katarina Watsica', 'https://via.placeholder.com/150', 'vgottlieb@example.net', '2020-04-13 03:38:10', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'EbMlkkwJxJ', '2020-04-13 03:38:10', '2020-04-13 03:38:10', NULL, NULL, NULL, NULL),
-(31, 'admin', 'https://via.placeholder.com/150', 'admin@gmail.com', '2020-04-06 17:32:52', '$2y$10$LeZJQZkybwi8jG.KeIK0tuM9bg.9ukIx7Hu/N8z3JtSetYatJGzJW', 'iDl9sBwOQRho302vEVQ6uxbuB7mgImRETrze0Kt8Ar4qhhRkkhrDve95FKPR', '2020-04-06 17:28:30', '2020-04-06 17:32:52', NULL, NULL, NULL, NULL),
+(31, 'admin', 'https://via.placeholder.com/150', 'admin@gmail.com', '2020-04-06 17:32:52', '$2y$10$LeZJQZkybwi8jG.KeIK0tuM9bg.9ukIx7Hu/N8z3JtSetYatJGzJW', 'qxbhBjashnRdkRdiTpdIte2aZCiLlw3g5PSalUBUkDbKFKmrput2CffatGpn', '2020-04-06 17:28:30', '2020-04-06 17:32:52', NULL, NULL, NULL, NULL),
 (32, 'Test', 'https://via.placeholder.com/150', 'test@gmail.com', NULL, '$2y$10$dfqjQjfsnpPY3O3CGFwrKuTx4ijOMY7jXbnyB1ibbBOEtPqchCtt6', NULL, '2020-04-06 19:00:04', '2020-04-06 19:00:04', NULL, NULL, NULL, NULL),
 (33, 'Duy', 'https://via.placeholder.com/150', 'duy@gmail.com', NULL, '$2y$10$SZL2oNi0r3ypi2M31NJ5Yu9oppXUj4OQnsoIKiD5396WGtbk0fBCC', NULL, '2020-04-14 03:21:32', '2020-04-14 03:21:32', NULL, NULL, NULL, NULL),
 (34, 'Tom', 'https://via.placeholder.com/150', 'tom@gmail.com', NULL, '$2y$10$LMyZZ.ROKB/J/PAdHlXM/uMK/3f.VsHyrnwTfvx7dj1gZjJLQnPgO', NULL, '2020-04-20 05:28:57', '2020-04-20 05:28:57', NULL, NULL, NULL, NULL),
@@ -937,7 +950,11 @@ INSERT INTO `users` (`id`, `name`, `avatar`, `email`, `email_verified_at`, `pass
 (40, 'Test3', 'https://via.placeholder.com/150', 'test05@gmail.com', NULL, '$2y$10$TEmi1t.dWtiMfvIjG6rPWOZxMw.hgL0GGGTZxo9sRG0C.bEtBTx8i', NULL, '2020-04-28 20:04:36', '2020-04-28 20:04:36', NULL, NULL, NULL, NULL),
 (43, 'Maes', 'https://via.placeholder.com/150', 'test99@gmail.com', NULL, '$2y$10$414gZTrsKDK6bfotdYT/fupm9dk2ZASazBvAap4RvzCMPQI1Tx4wq', NULL, '2020-05-01 08:12:18', '2020-05-01 08:12:18', NULL, NULL, NULL, NULL),
 (44, 'Duy03', 'https://via.placeholder.com/150', 'duy03@gmail.com', NULL, '$2y$10$lTW2Y5QkEMz2jIRPHcvv3eEy8dLvQhekuOaCaF0mJJ6pjeqh7uUKu', NULL, '2020-05-02 04:29:03', '2020-05-02 04:29:03', NULL, NULL, NULL, NULL),
-(45, 'Duy02', 'https://via.placeholder.com/150', 'duy02@gmail.com', NULL, '$2y$10$ETpI6sbN39voTcKSxwTy4OMa9m1k.A0D79RSqA5Pi03Ir9fd5/eL6', NULL, '2020-05-02 05:39:47', '2020-05-02 05:39:47', NULL, NULL, NULL, NULL);
+(45, 'Duy02', 'https://via.placeholder.com/150', 'duy02@gmail.com', NULL, '$2y$10$ETpI6sbN39voTcKSxwTy4OMa9m1k.A0D79RSqA5Pi03Ir9fd5/eL6', NULL, '2020-05-02 05:39:47', '2020-05-02 05:39:47', NULL, NULL, NULL, NULL),
+(46, 'Will', 'https://via.placeholder.com/150', 'Will@gmail.com', NULL, '$2y$10$g8neQFVObgzfkwVuoYUNdehEvWLHQr9fDZR4RK3LJur9qSEZuORCi', NULL, '2020-05-02 21:11:17', '2020-05-02 21:11:17', NULL, NULL, NULL, NULL),
+(47, 'Johnathan', 'https://via.placeholder.com/150', 'john@gmail.com', NULL, '$2y$10$pmof8js0FWUNDWDy8j8yMuFnMqO0mjstH3Oa328THXzo8.liGIlzK', NULL, '2020-05-02 21:12:53', '2020-05-02 21:12:53', NULL, NULL, NULL, NULL),
+(48, 'Lily', 'https://via.placeholder.com/150', 'lily@gmail.com', NULL, '$2y$10$AlGAgAUl6PVMXOIGAmH1aO3viva1Ws5P7AYCPLjUcSeK5lt1sv8i6', NULL, '2020-05-02 21:49:04', '2020-05-02 21:49:04', NULL, NULL, NULL, NULL),
+(49, 'Rose', 'https://via.placeholder.com/150', 'rose@gmail.com', NULL, '$2y$10$r4YIslazpbGACROWgu5S3eoogNMC5p7bQ6eHlBzxFuQZMt2Unp9LO', NULL, '2020-05-03 07:01:57', '2020-05-03 07:01:57', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1019,7 +1036,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `classrooms`
 --
 ALTER TABLE `classrooms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1031,13 +1048,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `issues`
@@ -1049,7 +1066,7 @@ ALTER TABLE `issues`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=608;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=611;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1067,13 +1084,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
