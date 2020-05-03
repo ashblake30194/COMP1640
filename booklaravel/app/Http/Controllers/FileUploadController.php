@@ -17,6 +17,7 @@ class FileUploadController extends Controller
         $role = $check_role[0]->role_id;
         $fileTeacher = [];
         $fileStudent = [];
+        $f_st = [];
 
         $id = Auth::user()->id;
         if($role == 4){
@@ -149,6 +150,7 @@ class FileUploadController extends Controller
                 $i++;
             }
         }
+
         return view('fileUpload',compact('files', 'class', 'fileTeacher', 'fileStudent'));
     }
 

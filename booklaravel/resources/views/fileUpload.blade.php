@@ -85,6 +85,7 @@
       </tr>
   @endforeach
   @foreach($fileTeacher as $key => $file)
+  @if($file->count() != 0)
     <tr>
         <td @if ($file[0]->role_id == 4) class="boldRed" @endif>{{ $file[0]->id }}</td>
         <td @if ($file[0]->role_id == 4) class="boldRed" @endif>{{ $file[0]->name }}</td>
@@ -101,6 +102,7 @@
       </a>
       </td>
       </tr>
+    @endif
       @endforeach
     @foreach($files as $key => $file)
     <tr>
