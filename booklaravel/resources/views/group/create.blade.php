@@ -4,7 +4,7 @@
 <a href="{{route('group.index')}}" class="btn btn-light"><i class="fa fa-backward"></i>Back</a>
 <br>
 @method('PATCH')
-<h2>Add Product</h2>
+<h2>Add Groups</h2>
 <form action ="/group" method="post">
     <div class="form-group">
         <h5>Classroom</h5>

@@ -64,7 +64,9 @@ class GroupController extends Controller
 
         $list = [];
         foreach($array as $key => $value){
-            $check_value = Group::where('student_id', $value['student_id'])->where('classroom', $value['classroom'])->where('teacher_id', $value['teacher_id'])->exists();
+            $check_value = Group::where('student_id', $value['student_id'])
+            ->where('classroom', $value['classroom'])
+            ->where('teacher_id', $value['teacher_id'])->exists();
             if (!$check_value){
                 $list[] = $value;
             }
